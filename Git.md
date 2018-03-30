@@ -92,3 +92,7 @@ git merge with a rebase (don't do on public branches, the history will only have
         
     *** to save for 5 minutes
          git config credential.helper 'cache --timeout=300'
+         
+    *** msysgit in windows disable the cache saving
+        *** do this before push
+        git config --global credential.helper wincred
