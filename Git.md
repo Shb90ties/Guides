@@ -72,7 +72,17 @@ git merge with a rebase (don't do on public branches, the history will only have
     git rebase master/dev (from new-branch, will check if there's no conflicts with master)
     git checkout master/dev
     git merge new-branch
-    
+
+# User name / email
+    see details
+        git config --list
+        git config user.email
+    git config user.name "myName"
+        ** global
+        git config --global user.name "myName"
+    git config user.email "myEmail"
+        ** global
+        git config --global user.email "myName"
     
 # Save password and username
     git config credential.helper cache
