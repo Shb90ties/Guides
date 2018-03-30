@@ -1,21 +1,22 @@
 ## Setup new project
 open repository in hosting website
-in the folder
-> git init
-> git add .
-> git commit -m "my first commit"
-> git remote add origin https://project-repo-url
-> git push origin -u master
+    in the folder
+    > git init
+    > git add .
+    > git commit -m "my first commit"
+    > git remote add origin https://project-repo-url
+    > git push origin -u master
 
 ## Commands
-switch branch
-    git checkout branchName
-switch to a new branch
-    git checkout -b branchName
-switch to a commit
-    git checkout commit-hash-code
 
-upload
+#### switch branch
+        git checkout branchName
+    switch to a new branch
+        git checkout -b branchName
+    switch to a commit
+        git checkout commit-hash-code
+
+#### upload
     git add .
     git commit -m "commit name"
         ** edit commit name
@@ -24,24 +25,24 @@ upload
         ** to force push (only when necessary)
             git push --force
     
-clear (to the last commit status)
+#### clear (to the last commit status)
     git revert
     git revert --hard
         or saving in local the changes
             git stash
 
-reset-rollback (take the branch back to a certain commit)
+#### reset-rollback (take the branch back to a certain commit)
     git log
         ** copy the target commit hash
             ** can copy only the first 7 letters
     git reset --hard commit-hash
     
 
-branch history
+##### branch history
     git log
     git log --oneline (to see in one line)
 
-pull & merge
+##### pull & merge
     git checkout dev/master
     git pull (updating the branch with the lastest commit)
     git pull origin/targetBranch
@@ -56,24 +57,24 @@ pull & merge
     git stash/revert (to go back before the changes)
 
 
-# Rebase
-git rebase info
+## Rebase
+##### git rebase info
     git rebase -i HEAD~10 (will show all 10 commits ago)
         // ^ opens editor with commands
     ** other rebase commands
     git rebase --continue
     git rebase --abort
 
-git rebase for clearing history (renewing the commits of the branch, change commits relations)
+##### git rebase for clearing history (renewing the commits of the branch, change commits relations)
     git checkout featureBranch
     git rebase sourceBranch (usually master/dev)
     git log (the commits will have new identifires)
-git merge with a rebase (don't do on public branches, the history will only have 1 branch)
+##### git merge with a rebase (don't do on public branches, the history will only have 1 branch)
     git rebase master/dev (from new-branch, will check if there's no conflicts with master)
     git checkout master/dev
     git merge new-branch
 
-# User name / email
+### User name / email
     see details
         git config --list
         git config user.email
@@ -84,7 +85,7 @@ git merge with a rebase (don't do on public branches, the history will only have
         ** global
         git config --global user.email "myName"
     
-# Save password and username
+### Save password and username
     git config credential.helper cache
     git push http://example.com/repo.git
         Username: <type your username>
