@@ -1,11 +1,11 @@
 ## Setup new project
-open repository in hosting website
-    in the folder
-    > git init
-    > git add .
-    > git commit -m "my first commit"
-    > git remote add origin https://project-repo-url
-    > git push origin -u master
+###### open repository in hosting website, in the target folder do
+    git init 
+    git add . 
+    git commit -m "my first commit" 
+    git remote add origin https://project-repo-url 
+    git push origin -u master
+
 
 ## Commands
 
@@ -58,6 +58,7 @@ open repository in hosting website
 
 
 ## Rebase
+
 ##### git rebase info
     git rebase -i HEAD~10 (will show all 10 commits ago)
         // ^ opens editor with commands
@@ -69,12 +70,15 @@ open repository in hosting website
     git checkout featureBranch
     git rebase sourceBranch (usually master/dev)
     git log (the commits will have new identifires)
+    
 ##### git merge with a rebase (don't do on public branches, the history will only have 1 branch)
     git rebase master/dev (from new-branch, will check if there's no conflicts with master)
     git checkout master/dev
     git merge new-branch
 
-### User name / email
+## User
+
+#### User name / email
     see details
         git config --list
         git config user.email
@@ -85,7 +89,7 @@ open repository in hosting website
         ** global
         git config --global user.email "myName"
     
-### Save password and username
+#### Save password and username
     git config credential.helper cache
     git push http://example.com/repo.git
         Username: <type your username>
