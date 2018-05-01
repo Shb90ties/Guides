@@ -1,0 +1,96 @@
+Add Snippets by searching in extentions
+example : console-log-snippet-javascript
+
+F1
+	search in VScode, usually for extentions
+Zoom
+	Ctrl +/-
+Terminal
+	Ctrl `   // <-(the ~)
+Open file on the half side
+	Ctrl & (click on file)
+Close/Open folders side menu
+	Ctrl B2
+Search for file
+	Ctrl P
+Select multiple lines by multiplying cursor (similar to 2xCtrl)
+	Alt Shift
+Copy paste a whole row
+	put cursor at the end of the line
+		Alt Shift down
+Select all the word occurences in the file
+	cursor on the word
+		Ctrl F2
+See suggestions
+	Ctrl Space
+Move line up/down
+	Alt Up/Down
+Select the next identical occurence of the word
+	Ctrl D
+	Put cursor at the end of all of them
+		Ctrl K
+	Select all occurence of the word
+	Ctrl Shift L
+Select Current line
+	Ctrl I
+Fold all
+	Ctrl Shift [
+Unfold all
+	Ctrl Shift ]
+Find in a file
+	Ctrl F
+Find and replace in a file
+	Ctrl H
+Find next occurence
+	F3
+Show debug
+	Ctrl Shift D 
+Replace in all Files
+	Ctrl Shift H
+	
+Search in all the Files
+	Ctrl Shift F
+	
+	
+	
+Show Extentions : Ctrl Shift X	
+Extentions_____________________________________________________________
+Path Intellegense
+	in Angular/React/Vue
+		import {} from '. will show the correct folders nevigation';
+Dracula purple theme
+	Dracula Official
+		File->prefences->color theme
+Git History
+	shows git log
+			F1 "History" click on git option
+Git Lens
+	click on a file in a git folder
+		view the options
+Git Merger
+	F1 "GitMerger" , pick options, Merge from
+Html Snippets
+	in html files shows elements suggestions
+Laravel Blade Snippets
+	allows in html to create elements with class
+		p.line -> TAB -> <p class="line">
+Sublime Text Keymap
+	change the keymap
+IntelliSense for CSS class
+	completes the css class in the html, show suggestions
+Bracket Pair Colorizer
+	colors different types of brackets
+Bootstrap 3 Snippets
+	type bs3- , Ctrl Space, Pick bootstrap element
+
+
+	For Angular
+		TSLint , shows error in typescript code
+		Auto Import, completes imports
+		Angular 4 and TypeScript/HTML VS Code Snippets
+		NgBootstrap Snippets
+		
+	For JS
+		JSHint
+		
+		

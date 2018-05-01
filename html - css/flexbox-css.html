@@ -1,0 +1,101 @@
+<html>
+    <head><title>Flexbox</title></head>
+    <style>
+        body {  /** recommanded preperation **/
+            padding: 0; margin: 0;
+        }
+        * {
+            box-sizing: border-box;
+        }
+
+        /*FLEX*/
+        section {
+            display: flex;
+            flex-direction: row;
+                /*if row children will be columns,  if coulmn children will be rows*/
+            flex-wrap: nowrap;
+                /*means items will stay in one row, can also use: flex-flow: flex-wrap*/
+                /*short-cut: flex-flow: row wrap;*/
+            justify-content: center;
+                /*where to place the elements like align*/
+            align-content: center;
+                /*determine where the content will be place horizontally and vertically, unless they have self-align*/
+            height: 100px;
+            width: 100%;
+            border: 2px solid black;
+        }
+        section div {
+            flex-grow: 3;
+                /*ability to grow*/
+            flex-shrink: 1;
+                /*ability to shrink*/
+            flex-basis: 20%;
+                /*default size*/
+            /*short cut flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ] */
+            border: 2px solid red;
+            height: 40px;
+            align-self:center;
+                /*where to place the element, in the center,top(flex-start),bottom(flex-end),auto*/
+        }
+        .one {
+            order: 1;
+                /*order of the items, all the .one will be first */
+            flex: 1 auto;
+                /* same as flex-grow & flex-basis*/
+            background-color: gray;
+        }
+        .one:not(:first-child) {
+            align-self: stretch;
+            height: 100%;
+            background-color: bisque;
+        }
+        .two {
+            order: 2;
+            flex: 2 auto;
+            align-self: flex-start;
+            background-color: aqua;
+        }
+        .three {
+            order: 3;
+            flex: 3 auto;
+            align-self: flex-end;
+            background-color: darkmagenta;
+        }
+
+        @media only screen and (max-width: 500px) {
+            section {
+                flex-flow: column;
+                    /*same as flex-direction and flex wrap*/
+                padding: 10px;
+            }
+            section div {
+                flex: 1 100% !important;
+                align-self: center !important;
+                width: 100%;
+            }
+            .one {
+                order: 4;
+            }
+            .one:not(:first-child) {
+                order: 1;
+            }
+            .two {
+                order: 3;
+            }
+            .three {
+                order: 2;
+            }
+        }
+    </style>
+    <body>
+        <p>has breakingpoint</p> 
+
+        <section>
+            <div class="one">[0] one</div>
+            <div class="two">[1] two</div>
+            <div class="one">[2] one</div>
+            <div class="three">[3] three</div>
+        </section>
+
+    </body>
+</html>

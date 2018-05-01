@@ -1,0 +1,217 @@
+// Compile sass to css softwares: Koala
+    // or
+        // sass input.scss output.css, sass --watch input.scss:output.css
+// _partial.scss. The underscore lets Sass know that the file is only a partial file and that it should not be generated into a CSS file
+
+@import 'reset';
+@import "foo" screen;
+@import "http://foo.com/bar";
+@import url(foo);
+@import "rounded-corners", "text-shadow";
+
+
+@mixin make-grid($args) {
+    &.x2 {
+        width: calc(100% - #{get-width($args)})
+    }
+}
+
+$total = 100;
+
+@function get-width($args: 'default-val') {
+    @return percentage($args / $total);
+}
+
+@function clamp($value, $min, $max) {
+  @return if($value > $max, $max, if($value < $min, $min, $value));
+}
+
+
+// @warn and unit
+@function convert-angle($value, $unit) {
+  $convertable-units: deg grad turn rad;
+  $conversion-factors: 1 10grad/9deg 1turn/360deg 3.1415926rad/180deg;
+  @if index($convertable-units, unit($value)) and index($convertable-units, $unit) {
+    @return $value
+             / nth($conversion-factors, index($convertable-units, unit($value)))
+             * nth($conversion-factors, index($convertable-units, $unit));
+  } @else {
+    @warn "Cannot convert #{unit($value)} to #{$unit}";
+  }
+}
+
+
+
+// loops
+@function match($haystack, $needle) {
+  @each $item in $haystack {
+    $index: index($item, $needle);
+    @if $index {
+      $return: if($index == 1, 2, $index);
+      @return nth($item, $return);
+    }
+  }
+  @return false;
+}
+
+
+
+// match true/false
+$list: a b, c d, e f;
+$value: match($list, e); /* returns f */
+$value: match($list, b); /* returns a */
+$value: match($list, z); /* returns false */
+
+
+
+// extend inherits
+.message {
+    color: black;
+}
+
+.sms {
+    @extend .message;
+    background-color: blue;
+}
+
+
+
+// selectors by attributes
+article[role="main"]
+
+
+// alternative mixin
+%my-alternative-mix {
+    margin: 10px;
+}
+.aaa {
+    @extend %my-alternative-mix;
+}
+
+
+
+// global variable
+#main {
+  $width: 5em !global; // !global flag, in which case they're also available everywhere
+  width: $width;
+}
+.unrelated-class {
+    width: $width;
+}
+
+
+// only for firefox mixin
+@mixin firefox-message($selector) {
+  body.firefox #{$selector}:before {
+    content: "Hi, Firefox users!";
+  }
+}
+
+
+// map object
+$map: (key1: value1, key2: value2, key3: value3);
+
+
+// use variables along with a plain CSS
+font: #{$font-size}/#{$line-height};
+content: "I ate #{5 + 10} pies!";
+
+
+
+// calc colors
+color: #010203 + #040506; => color: #050709;
+color: #010203 * 2 => color: #020406;
+color: rgba(255, 0, 0, 0.75) + rgba(0, 255, 0, 0.75) => color: rgba(255, 255, 0, 0.75);
+
+
+// variables from the selector
+p.#{$name} {
+    
+}
+
+// font-size and line-height
+font: #{$font-size}/#{$line-height};
+font: 12px/30px;
+
+
+// parent exists
+@mixin does-parent-exist {
+  @if & {
+    &:hover {
+      color: red;
+    }
+  } @else {
+    a {
+      color: red;
+    }
+  }
+}
+
+
+// default variables state
+$content: "First content";
+$content: "Second content?" !default;
+
+
+// important and optional extend examples
+a.important {
+  @extend .notice !optional;
+}
+
+
+// print breaking point
+@media print {
+    ....
+}
+
+
+// at-root causes one or more rules to be emitted at the root of the document
+.parent {
+  ...
+  @at-root .child { ... }
+}
+
+
+
+// debug
+@debug 10em + 12em;
+
+
+// units conditions
+@if unitless($x)
+    @error "$x may not be unitless, was #{$x}.";
+@if unit($x)
+    
+// condition to variable
+if(true, 1px, 2px) => 1px
+    // equals to => (true) ? 1px : 2px
+
+    
+// loop
+@for $i from 1 through 3 {
+  .item-#{$i} { width: 2em * $i; }
+}
+
+@each $animal in puma, sea-slug, egret, salamander {
+  .#{$animal}-icon {
+    background-image: url('/images/#{$animal}.png');
+  }
+}
+
+@each $animal, $color, $cursor in (puma, black, default), (sea-slug, blue, pointer),(egret, white, move) {
+  .#{$animal}-icon {
+    background-image: url('/images/#{$animal}.png');
+    border: 2px solid $color;
+    cursor: $cursor;
+  }
+}
+
+$i: 6;
+@while $i > 0 {
+  .item-#{$i} { width: 2em * $i; }
+  $i: $i - 2;
+}
+
+
+
+

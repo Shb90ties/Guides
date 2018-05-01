@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>simple grid</title>
+    </head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .container {
+            display: table; 
+            background-color:blue; 
+            width: 100%;
+            max-width: 980px; 
+            height: 55px; 
+            margin: 0 auto; 
+            font-size: 0;
+            text-align: center;
+        }
+        .row {
+            display: table-row;
+            width: 100%;
+        }
+        .cell {
+            display: table-cell; 
+            vertical-align: top;
+            background-color:red; 
+            width: 14.28%; 
+            height: 55px;
+            border: 1px solid black;
+        }
+        .big {
+            width: 28.56%;
+            background-color: orange;
+        }
+    </style>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="cell"></div>
+                <div class="cell big"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+            </div>
+        </div>
+    </body>
+</html>

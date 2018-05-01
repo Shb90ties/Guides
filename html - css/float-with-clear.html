@@ -1,0 +1,47 @@
+<html>
+    <head><title></title></head>
+    <style>
+        main {
+            margin: 10px;
+            display: block;
+            border: 2px solid black;
+            text-align: right;
+            padding: 20px;
+        }
+        aside {
+            border: 2px solid blue;
+            color: blue;
+            text-align: center;
+            min-width: 300px;
+            height: 150px;
+            font: italic bold 12px/150px Georgia, serif;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        aside.floater {
+            float: left;
+            font: italic bold 12px/200px Georgia, serif;
+            height: 200px;
+        }
+        main:after { /* clearfix */
+            visibility: hidden;
+            display: block;
+            font-size: 0;
+            content: " ";
+            clear: both;
+            height: 0;
+            width: 0;
+        }
+    </style>
+    <body>
+        <main>
+            <aside>
+                regular
+            </aside>
+
+            <aside class="floater">
+                floater
+            </aside>
+        </main>
+    </body>
+</html>

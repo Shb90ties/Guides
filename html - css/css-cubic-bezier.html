@@ -1,0 +1,63 @@
+<html>
+    <head><title>CSS effects</title></head>
+    <style>
+        .container {
+            display: block;
+            border: 2px solid black;
+            height: 400px;
+            position: relative;
+        }
+        .effect_content {
+            position: absolute;
+            background-color: blue;
+            color: white;
+            width: 100px;
+            top: 50%; transform: translateY(-50%);
+            -webkit-user-select: none; /* Safari 3.1+ */
+            -moz-user-select: none; /* Firefox 2+ */
+            -ms-user-select: none; /* IE 10+ */
+            user-select: none;
+            
+            height: 100px;
+            left: 0;
+            transition: all .5s cubic-bezier(.89,.13,.19,.87);
+                    /* define speed by using 2 points (x1,y1) (x2,y2)
+                            regular speed is one vertical line (0.2, 0.1) (0.2, 1) | 
+                                use http://cubic-bezier.com */
+        }
+        .menu {
+            background-color: blue;
+            color: white;
+            position: absolute;
+            top: 0;
+            right: 0;
+            overflow: hidden;
+            width: 0;
+            height: 100%;
+            text-align: center;
+
+            transition: width .5s cubic-bezier(.78,.17,.32,.84);
+        }
+        .container:hover .effect_content {
+            left: 80px;
+            height: 300px;
+        }
+        .container:hover .menu {
+            width: 300px;
+        }
+    
+    </style>
+    <body>
+        
+        <div class="container">
+            <div class="effect_content">
+                can't select this content
+            </div>
+
+            <div class="menu">
+                menu
+            </div>
+        </div>
+
+    </body>
+</html>
