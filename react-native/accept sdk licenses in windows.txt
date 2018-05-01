@@ -1,0 +1,9 @@
+C:\Users\{user}\AppData\Local\Android\sdk\tools\bin
+
+./sdkmanager --licenses
+
+./sdkmanager --update
+
+android update sdk --no-ui
+
+https://forum.ionicframework.com/search?q=android%20sdk%20license%20agreement

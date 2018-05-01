@@ -1,0 +1,116 @@
+<html>
+    <head>
+        <title>html flexible grid</title>
+    </head>
+
+    <style>
+        .table {
+            max-width: 1120px;
+            margin: auto;
+            border: 1px solid black;
+            direction: inherit;
+        }
+        .row {
+            width: 100%;
+            font-size: 0;
+            border: 1px dashed blue;
+            border-spacing: 5px 2px;
+            display: table;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+        }
+        /*
+        .row[style*="direction: ltr"], row[dir="ltr"] {
+            display: none;
+        }
+        fits to => <div class="row" style="direction: inherit;" dir="auto">
+        */
+
+        /* float alternative */
+        .table_rtl .row {
+            direction: ltr;
+        }
+        .table_rtl .col {
+            direction: rtl;
+        }
+        .table_ltr .row {
+            direction: rtl;
+        }
+        .table_ltr .col {
+            direction: ltr;
+        }
+
+
+        .col {
+            width: 50%;
+            display: table-cell;
+        }
+
+        .content {
+            background-color: red;
+            color: black;
+            border-radius: 5px;
+            font-size: 15px;
+            direction: ltr;
+        }
+
+
+        .content ul, .content ul li {
+            margin: 0;
+            padding: 2px;
+            list-style: none;
+        }
+
+        @media screen and (max-width: 760px) {
+            .col {
+                width: 100%;
+                margin-bottom: 2px;
+                float: right;
+            }
+        }
+    </style>
+    
+    <body>
+        <div class="table">
+
+            <div class="row">
+                
+                <div class="col content">
+
+                    This is the header in mobile<br>
+                    some line in this<br>
+                    some line in this<br>
+                    some line in this<br>
+                    some line in this<br>
+                    משפט בעברית
+
+                </div>
+
+                <div class="col content">
+                    
+                    This is the footer in mobile<br>
+                    some line in this<br>
+                    some line in this<br>
+
+                </div>
+
+            </div>
+        </div>
+
+    </body>
+
+    <script type="text/javascript">
+        function init_grid() {
+            var grid = document.getElementsByClassName('table')[0];
+            direction = document.defaultView.getComputedStyle(document.getElementsByTagName('body')[0],null).direction;
+            if( direction == "" || direction == "ltr" ) {
+                grid.className = "table table_ltr";
+            } else {
+                grid.className = "table table_rtl";
+            }
+        };
+        init_grid();
+    </script>
+
+
+</html>

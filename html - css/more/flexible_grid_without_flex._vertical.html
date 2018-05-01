@@ -1,0 +1,102 @@
+<html>
+    <head>
+        <title>html flexible grid</title>
+    </head>
+
+    <style>
+        .container {
+            max-width: 1120px;
+            margin: auto;
+            border: 1px dashed black;
+            padding: 4px;
+        }
+        .table {
+            display: table;
+            width: calc(100% - 10px); /* (4+4+1+1) calculate parent padding and margin and border(two sides) */
+            font-size: 0;
+            border: 1px dashed yellow;
+            padding: 4px;
+        }
+        .row {
+            display: table-row;
+            border: 1px dashed red;
+            padding: 4px;
+        }
+        .col {
+            display: table-cell;
+            width: 50%;
+            border: 1px dashed blue;
+            padding: 4px;
+            vertical-align: middle;
+        }
+        .content {
+            background-color: aqua;
+            color: black;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+        .inner_content_row {
+            width: calc(100% - 10px); /* (4+4+1+1) calculate parent padding and margin and border(two sides) */
+            height: calc(100% - 10px);
+            display: inline-block;
+            border: 1px dashed green;
+            padding: 4px;
+        }
+        .inner_content_col {
+            width: calc(100% - 10px);
+            height: calc(50% - 10px);
+            border: 1px dashed white;
+            padding: 4px;
+        }
+
+        @media screen and (max-width: 760px) {
+
+        }
+    </style>
+    
+    <body style="background-color: darkcyan">
+
+        <div class="container">
+
+            <div class="table">
+
+                <div class="row">
+
+                    <div class="col content">
+                        something >>> <br>
+                        something >>> <br>
+                        something >>> <br>
+                        something >>> <br>
+                        something >>> <br>
+                        something >>> <br>
+                        something >>> <br>
+                        something >>> <br>
+                        something >>> <br>
+                        something >>> <br>
+                    </div>
+
+                    <div class="col">
+                        
+                        <div class="inner_content_row">
+
+                            <div class="inner_content_col content">
+                                something >>> <br>
+                                something >>> <br>
+                                something >>> <br>
+                            </div>
+                            <div class="inner_content_col content">
+                                something >>> <br>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </body>
+</html>
